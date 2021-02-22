@@ -14,7 +14,7 @@
 # set source and destination
 
 src="."
-dst="/lustre03/project/rpp-markpb68/m3group/Haqqee/data/PAL_CA1/"
+dst="/lustre03/project/rpp-markpb68/m3group/etcetcetc"
 
 
 for d in */ ; do
