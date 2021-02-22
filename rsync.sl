@@ -12,14 +12,16 @@
 
 
 # set source and destination
+# This will make an identical copy of all subdirectories of where it is run, in a destination folder
+## i.e., it will recreate what you see when you type "ls" in the directroy you are running this script (folders only)
+### can use to specify file types. For example, only .tar files
+
 
 src="."
-dst="/lustre03/project/rpp-markpb68/m3group/Haqqee/data/PAL_CA1/"
+dst="/lustre03/project/rpp-markpb68/m3group/etcetcetc"
 
 
-for d in */ ; do
-	rsync -amhv --include='*.tar' --include='*/' --exclude='*' "$d" "$dst"
-done
+rsync -amhv --include='*.tar' --include='*/' --exclude='*' "$d" "$dst"
 
 
 echo "Done!"
