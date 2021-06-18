@@ -18,7 +18,7 @@ IDlength=6
 email="computezee@gmail.com"
 
 ### Enter the full parent directory for analysis in the () brackets (default is pwd)
-### The script will search from *this* directory onwards for BehavCam_0 folders.
+### The script will search from *this* directory onwards for either Miniscope, Miniscope_2, or BehavCam_0 folders.
 root_directory=$(pwd)
 
 # put either "miniscope" or "behaviour" depending on type of avi files you want to target for tar
