@@ -1,13 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name=oct_tar_checks
-#SBATCH --account=rpp-markpb68
-#SBATCH --time=1:00:00
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=2
-#SBATCH --mem=2000
-#SBATCH --mail-user=computezee@gmail.com
-#SBATCH --mail-type=ALL
+
+# this script simply checks whether or not sessions in a directory have been tarred
 
 initials='ZHA'
 
@@ -29,7 +22,7 @@ do
 	if (( $tar_check == 0 ))
 	then
 		echo "MISSING: $session has not been tarred!"
-		tar -cvf "$ID.tar" .
+		# tar -cvf "$ID.tar" .
 	else
 		echo "CHECKED: Already tar-ed $ID in $session"
 	fi
