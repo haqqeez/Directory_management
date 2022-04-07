@@ -28,7 +28,7 @@ minimum_number=3 # minimum number of video files; set this to 1 if you've alread
 
 # absolute path to your scripts directory (that has concat_delete_videos.sl)
 # make sure there is NO '/' at the end of this path
-MY_DLC_SCRIPTS_DIRECTORY='/lustre03/project/rpp-markpb68/m3group/Haqqee/GitHub/DLC'
+MY_SCRIPTS_DIRECTORY='/lustre03/project/rpp-markpb68/m3group/Haqqee/GitHub/Directory_management'
 
 ########################################################################################
 
@@ -71,16 +71,16 @@ do
 		animalID="$ID-$date$end"
 		ID="$taskname-$ID-$date"
 
-		cp $MY_DLC_SCRIPTS_DIRECTORY/tar_and_delete.sl .
+		cp $MY_SCRIPTS_DIRECTORY/concat_delete_videos.sl .
 		sleep 2
-    sed -i -e "s|TASKNAME|$ID|g" concat_delete_videos.sl
-    sed -i -e "s|MYID|$animalID|g" concat_delete_videos.sl
-    sed -i -e "s|MYEMAIL|$email|g" concat_delete_videos.sl
-    sed -i -e "s|FILETYPE|$tarname|g" concat_delete_videos.sl
-    sed -i -e "s|MINSIZE|$minimum_size|g" concat_delete_videos.sl
+	        sed -i -e "s|TASKNAME|$ID|g" concat_delete_videos.sl
+	        sed -i -e "s|MYID|$animalID|g" concat_delete_videos.sl
+	        sed -i -e "s|MYEMAIL|$email|g" concat_delete_videos.sl
+	        sed -i -e "s|FILETYPE|$tarname|g" concat_delete_videos.sl
+	        sed -i -e "s|MINSIZE|$minimum_size|g" concat_delete_videos.sl
 		sed -i -e "s|MINUM|$minimum_number|g" concat_delete_videos.sl
-    sbatch concat_delete_videos.sl
-    sleep 2
+    		sbatch concat_delete_videos.sl
+   	 	sleep 2
 
 	else
 		echo "ERROR: Not ready for concat yet; check videos exist in $session"
