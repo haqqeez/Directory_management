@@ -83,7 +83,7 @@ if (( $concat_check == 0 )); then
       echo "Files deleted!"
       gosignal=1
     fi
-
+  fi
 elif (( $concat_check == 1 )); then
   echo "concatenaed video file already exists!"
 fi
