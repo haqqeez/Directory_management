@@ -50,9 +50,7 @@ do
 	videoThreshold=$(find -maxdepth 1 -type f -size +$minimum_size -name "*.avi" | wc -l)
 	tar_check=$(find -type f -name $tarname | wc -l)
 	filepart_check=$(find -type f -name "*filepart" | wc -l)
-  concat_check=$(find -type f -name "*concat.avi" | wc -l)
-
-	DLC_data=$(find -type f -name "*DLC*.csv" | wc -l)
+  	concat_check=$(find -type f -name "*concat.avi" | wc -l)
 
 	if (( $tar_check == 1 )); then
 		echo "SKIPPED: $session already has $tarname"
