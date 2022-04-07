@@ -41,6 +41,7 @@ elif [[ "$tar_files_type" == "behaviour" ]]; then
 fi
 
 taskname="concat"
+end="_concat"
 
 for session in $data
 do
