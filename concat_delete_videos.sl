@@ -1,11 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=TASKNAME
 #SBATCH --account=rpp-markpb68
-#SBATCH --time=0:14:00
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=1
-#SBATCH --mem=4000
+#SBATCH --time=0:10:00
+#SBATCH --mem=2000
 #SBATCH --mail-user=MYEMAIL
 #SBATCH --mail-type=ALL
 
@@ -57,7 +54,7 @@ if (( $concat_check == 0 )); then
     # count the total number of frames in all video files
     original_total=0
     for f in *.avi; do
-      numframes=$(ffprobe -v error -select_streams v:0 -show_entries stream=nb_frames -of default=nokey=1:noprint_wrappers=1 $f)
+      numframes=$(ffprobe -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets -of csv=p=0 $f)
       original_total=$((original_total+$numframes))
     done
     echo "Total frames is $original_total"
